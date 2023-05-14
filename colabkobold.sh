@@ -160,6 +160,7 @@ if [ "$init" != "skip" ]; then
     else
         pip install -r requirements.txt
     fi
+    pip uninstall transformers
     pip install git+https://github.com/huggingface/transformers
     # Make sure Colab has the system dependencies
     sudo apt install netbase aria2 -y
