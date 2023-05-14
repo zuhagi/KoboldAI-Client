@@ -157,12 +157,16 @@ if [ "$init" != "skip" ]; then
 
     if [ -n "${COLAB_TPU_ADDR+set}" ]; then
         pip install -r requirements_mtj.txt
+	echo "Updating transformers"
+    	pip uninstall transformers
+    	pip install git+https://github.com/huggingface/transformers
     else
         pip install -r requirements.txt
+	echo "Updating transformers"
+    	pip uninstall transformers
+    	pip install git+https://github.com/huggingface/transformers
     fi
-    echo "Updating transformers"
-    pip uninstall transformers
-    pip install git+https://github.com/huggingface/transformers
+    
     # Make sure Colab has the system dependencies
     sudo apt install netbase aria2 -y
     npm install -g localtunnel
