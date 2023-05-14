@@ -160,6 +160,7 @@ if [ "$init" != "skip" ]; then
     else
         pip install -r requirements.txt
     fi
+    echo "Updating transformers"
     pip uninstall transformers
     pip install git+https://github.com/huggingface/transformers
     # Make sure Colab has the system dependencies
